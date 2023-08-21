@@ -147,7 +147,7 @@ begin
 
     
 p_next_state : PROCESS (state, key_valid, nonce_valid, rcon, ascon_state, ascon_out, ascon_out1, 
-                        key_tmp, en_dec,
+                        key_tmp, data_tmp, en_dec,
                         associated_data_tvalid_s, associated_data_tlast_s, associated_data_tdata_s, associated_data_tkeep_s,
                         datain_tvalid_s, datain_tlast_s, datain_tdata_s, datain_tkeep_s,
                         dataout_tvalid_s, dataout_tlast_s, dataout_tdata_s, dataout_tkeep_s)
