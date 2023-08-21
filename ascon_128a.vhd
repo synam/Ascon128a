@@ -63,12 +63,6 @@ architecture Behavioral of ascon_128a is
    SIGNAL ascon_out1 : STD_LOGIC_VECTOR(319 DOWNTO 0);
    SIGNAL rcon1, rcon_next1 : STD_LOGIC_VECTOR(3 DOWNTO 0);   
    SIGNAL key_tmp : STD_LOGIC_VECTOR(127 DOWNTO 0);
-   SIGNAL ascon_reg : STD_LOGIC_VECTOR(319 DOWNTO 0);
-   SIGNAL data_padd : STD_LOGIC_VECTOR(127 DOWNTO 0);
-   
-   SIGNAL ascon_fast_state: std_logic_vector(319 DOWNTO 0);
-   SIGNAL ascon_fast_out : STD_LOGIC_VECTOR(319 DOWNTO 0);
-   SIGNAL rcon_fast, rcon_fast_next : STD_LOGIC_VECTOR(3 DOWNTO 0);   
 
    SIGNAL dataout_tdata_s : STD_LOGIC_VECTOR (127 DOWNTO 0);
    SIGNAL dataout_tkeep_s : STD_LOGIC_VECTOR (15 DOWNTO 0);
