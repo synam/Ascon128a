@@ -43,7 +43,7 @@ entity ascon_128a_r4 is
         tag : OUT STD_LOGIC_VECTOR (127 DOWNTO 0);   
         tag_valid : OUT STD_LOGIC
     );
-end ascon_128a;
+end ascon_128a_r4;
 
 architecture Behavioral of ascon_128a is
 
