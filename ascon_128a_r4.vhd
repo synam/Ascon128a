@@ -45,7 +45,7 @@ entity ascon_128a_r4 is
     );
 end ascon_128a_r4;
 
-architecture Behavioral of ascon_128a is
+architecture Behavioral of ascon_128a_r4 is
 
         COMPONENT Asconp
             PORT (
