@@ -264,7 +264,7 @@ begin
     
 
     
-p_next_state : PROCESS (state, key_valid, nonce_valid, rcon, ascon_state, ascon_out, ascon_out1, 
+p_next_state : PROCESS (state, key_valid, nonce_valid, rcon, ascon_state, ascon_out,  
                         key_tmp, data_tmp, en_dec, pad_empty, last_ad,
                         associated_data_rd_en, associated_data_empty, associated_data_tlast_fifo_out,
                         datain_rd_en, datain_empty, datain_tlast_fifo_out,
