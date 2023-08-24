@@ -84,8 +84,6 @@ architecture Behavioral of ascon_128a_r4 is
    SIGNAL ascon_state, ascon_state_next: std_logic_vector(319 DOWNTO 0);
    SIGNAL ascon_out : STD_LOGIC_VECTOR(319 DOWNTO 0);
    SIGNAL rcon, rcon_next : STD_LOGIC_VECTOR(3 DOWNTO 0);
-   SIGNAL ascon_out1 : STD_LOGIC_VECTOR(319 DOWNTO 0);
-   SIGNAL rcon1, rcon_next1 : STD_LOGIC_VECTOR(3 DOWNTO 0);   
    SIGNAL key_tmp : STD_LOGIC_VECTOR(127 DOWNTO 0);
 
    SIGNAL dataout_tdata_s : STD_LOGIC_VECTOR (127 DOWNTO 0);
@@ -165,12 +163,6 @@ begin
     associated_data_tkeep_s <= reverse_bit(associated_data_tkeep);
     associated_data_tvalid_s <= associated_data_tvalid;   
     associated_data_tlast_s <= associated_data_tlast;       
-    
---    data_tmp <= (ascon_out1(127 DOWNTO 0) XOR datain_tdata_s) WHEN state = PROCESS_MSG AND en_dec = '1' AND datain_tlast_s = '1' ELSE
---                (ascon_state(127 DOWNTO 0) XOR datain_tdata_s) WHEN state = ABSORB_MSG AND en_dec = '1' AND datain_tlast_s = '1' ELSE
---                (ascon_out1(127 DOWNTO 0) XOR pad_data_in(datain_tvalid_s, datain_tlast_s, datain_tdata_s, datain_tkeep_s)) WHEN state = PROCESS_MSG AND en_dec = '0' AND datain_tlast_s = '1' ELSE
---                (ascon_state(127 DOWNTO 0) XOR pad_data_in(datain_tvalid_s, datain_tlast_s, datain_tdata_s, datain_tkeep_s)) WHEN state = ABSORB_MSG AND en_dec = '0' AND datain_tlast_s = '1' ELSE                
---                (others => '0');
 
     data_tmp <= (ascon_state(127 DOWNTO 0) XOR datain_tdata_fifo_out) WHEN state = ABSORB_MSG AND en_dec = '1' AND datain_tlast_fifo_out = '1' ELSE
                 (ascon_state(127 DOWNTO 0) XOR pad_data_in(datain_rd_en, datain_tlast_fifo_out, datain_tdata_fifo_out, datain_tkeep_fifo_out)) WHEN state = ABSORB_MSG AND en_dec = '0' AND datain_tlast_fifo_out = '1' ELSE                
